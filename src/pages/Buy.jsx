@@ -45,10 +45,10 @@ const Buy = () => {
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Buy USDC on Base Network
+            Buy USDC & USDT on Base Network
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Purchase USDC with fiat currency and start your DeFi journey on Base network
+            Purchase USDC or USDT stablecoins with fiat currency and start your DeFi journey on Base network
           </p>
           
           {/* Stats Cards */}
@@ -81,10 +81,10 @@ const Buy = () => {
               <div className="card-header">
                 <h2 className="text-2xl font-bold text-gray-900 flex items-center">
                   <span className="mr-3">💰</span>
-                  Purchase USDC
+                  Purchase USDC & USDT
                 </h2>
                 <p className="text-gray-600 mt-2">
-                  Enter the amount you want to buy and choose your payment method
+                  Enter the amount you want to buy and choose between USDC or USDT
                 </p>
               </div>
               <div className="card-body">
