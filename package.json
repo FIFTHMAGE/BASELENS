@@ -2,24 +2,21 @@
   "name": "cast-scheduler-pro",
   "version": "1.0.0",
   "private": true,
-  "description": "Professional Farcaster cast scheduling platform for scheduling and managing your Farcaster posts",
+  "description": "Professional Farcaster cast scheduling platform with stunning glass-morphism UI. Schedule, manage, and grow your Farcaster presence with style.",
   "main": "index.js",
   "dependencies": {
     "@farcaster/core": "^0.10.2",
     "@farcaster/hub-web": "^0.10.0",
-    "@farcaster/miniapp-sdk": "^0.1.9",
-    "autoprefixer": "^10.4.21",
+    "@farcaster/miniapp-sdk": "^0.0.1",
     "date-fns": "^3.6.0",
     "lucide-react": "^0.468.0",
     "papaparse": "^5.5.3",
-    "postcss": "^8.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.62.0",
     "react-hot-toast": "^2.6.0",
     "react-router-dom": "^6.30.1",
     "react-scripts": "5.0.1",
-    "tailwindcss": "^3.4.17",
     "web-vitals": "^5.1.0"
   },
   "scripts": {
@@ -51,7 +48,10 @@
     "scheduler",
     "social-media",
     "content-calendar",
-    "bulk-upload"
+    "bulk-upload",
+    "glass-morphism",
+    "modern-ui",
+    "production-ready"
   ],
   "author": "Cast Scheduler Pro Team",
   "license": "MIT"

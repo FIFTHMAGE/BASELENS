@@ -28,32 +28,29 @@ function Navigation() {
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm">
+    <nav className="nav-glass">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                <Clock className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <Clock className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900">Cast Scheduler Pro</span>
+              <span className="text-xl font-bold text-white">Cast Scheduler Pro</span>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => {
               const Icon = item.icon;
+              const isActive = location.pathname === item.path;
               return (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    location.pathname === item.path
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
+                  className={`nav-item ${isActive ? 'active' : ''}`}
                 >
                   <Icon className="w-4 h-4 mr-2" />
                   {item.label}
@@ -71,18 +68,18 @@ function Navigation() {
             
             {/* User Menu */}
             <div className="relative">
-              <button className="flex items-center space-x-2 text-sm text-gray-700 hover:text-gray-900">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+              <button className="flex items-center space-x-2 text-sm text-white hover:text-gray-200 transition-colors">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
                   <span className="text-white text-sm font-medium">JD</span>
                 </div>
-                <span className="hidden md:block">John Doe</span>
+                <span className="hidden md:block font-medium">John Doe</span>
               </button>
             </div>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -93,22 +90,19 @@ function Navigation() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="md:hidden glass-card mb-4">
+            <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
+                const isActive = location.pathname === item.path;
                 return (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`flex items-center px-3 py-2 rounded-md text-base font-medium ${
-                      location.pathname === item.path
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                    }`}
+                    className={`nav-item block ${isActive ? 'active' : ''}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <Icon className="w-5 h-5 mr-3" />
+                    <Icon className="w-5 h-5 mr-3 inline" />
                     {item.label}
                   </Link>
                 );
@@ -141,7 +135,7 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen">
         <Navigation />
         
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -160,8 +154,11 @@ function App() {
           toastOptions={{
             duration: 4000,
             style: {
-              background: '#363636',
+              background: 'rgba(0, 0, 0, 0.8)',
               color: '#fff',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '12px',
             },
           }}
         />
