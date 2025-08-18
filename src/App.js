@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { Calendar, Clock, Users, BarChart3, Settings, Plus } from 'lucide-react';
 import './App.css';
+
+// Import Farcaster Mini App SDK
+import { sdk } from '@farcaster/miniapp-sdk';
 
 // Import pages
 import Dashboard from './pages/Dashboard';
@@ -120,6 +123,22 @@ function Navigation() {
 
 // Main App component
 function App() {
+  // Initialize Farcaster Mini App SDK when app is ready
+  useEffect(() => {
+    const initializeFarcasterSDK = async () => {
+      try {
+        // Wait for the app to be fully loaded
+        await sdk.actions.ready();
+        console.log('Farcaster Mini App SDK initialized successfully');
+      } catch (error) {
+        console.error('Failed to initialize Farcaster Mini App SDK:', error);
+        // Continue loading the app even if SDK fails
+      }
+    };
+
+    initializeFarcasterSDK();
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
