@@ -36,15 +36,15 @@ function Navigation() {
 
   return (
     <nav className="nav-glass">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo - Better sizing and spacing */}
+      <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <div className="flex justify-between items-center h-24">
+          {/* Logo - Professional desktop sizing */}
           <div className="flex items-center">
-            <Logo size="large" className="mr-6" />
+            <Logo size="xl" className="mr-8" />
           </div>
 
-          {/* Desktop Navigation - Better spacing */}
-          <div className="hidden lg:flex items-center space-x-6">
+          {/* Desktop Navigation - Professional spacing */}
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.path;
@@ -61,27 +61,27 @@ function Navigation() {
             })}
           </div>
 
-          {/* Right side - Better button spacing */}
-          <div className="flex items-center space-x-4">
-            <button className="btn-primary px-6 py-3 text-base">
+          {/* Right side - Professional button spacing */}
+          <div className="flex items-center space-x-6">
+            <button className="btn-primary px-8 py-4 text-base">
               <Plus className="w-5 h-5 mr-3" />
               New Cast
             </button>
             
-            {/* User Menu - Better spacing */}
-            <div className="relative ml-4">
-              <button className="flex items-center space-x-3 text-base text-white hover:text-gray-200 transition-colors px-3 py-2 rounded-lg hover:bg-white/10">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white text-base font-medium">JD</span>
+            {/* User Menu - Professional spacing */}
+            <div className="relative ml-6">
+              <button className="flex items-center space-x-4 text-base text-white hover:text-gray-200 transition-colors px-4 py-3 rounded-lg hover:bg-white/10">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-white text-lg font-medium">JD</span>
                 </div>
-                <span className="hidden xl:block font-medium">John Doe</span>
+                <span className="hidden xl:block font-medium text-lg">John Doe</span>
               </button>
             </div>
 
             {/* Mobile menu button - Better positioning */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-3 rounded-lg text-white hover:bg-white/10 transition-colors ml-2"
+              className="lg:hidden p-3 rounded-lg text-white hover:bg-white/10 transition-colors ml-4"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -92,8 +92,8 @@ function Navigation() {
 
         {/* Mobile Navigation - Better spacing */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden glass-card mb-6 mt-4">
-            <div className="px-4 py-4 space-y-3">
+          <div className="lg:hidden glass-card mb-8 mt-6">
+            <div className="px-6 py-6 space-y-4">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = location.pathname === item.path;
@@ -140,7 +140,7 @@ function App() {
       <div className="min-h-screen">
         <Navigation />
         
-        <main className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+        <main className="max-w-7xl mx-auto px-8 lg:px-12 py-16">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/scheduler" element={<Scheduler />} />

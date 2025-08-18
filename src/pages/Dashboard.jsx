@@ -102,20 +102,20 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="space-y-8 fade-in-up">
+    <div className="space-y-10 fade-in-up">
       {/* Header */}
       <div className="glass-card">
         <div className="card-header">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-8">
             <div>
               <h1 className="card-title">Welcome to Boomerang</h1>
               <p className="card-subtitle">Schedule and manage your Farcaster casts with professional tools</p>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-3 rounded-lg text-base font-medium">
+            <div className="flex items-center gap-6">
+              <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-4 rounded-xl text-lg font-medium">
                 Professional Plan
               </div>
-              <div className="text-green-400 text-base">
+              <div className="text-green-400 text-lg">
                 ✓ Active
               </div>
             </div>
@@ -153,24 +153,24 @@ const Dashboard = () => {
           <p className="card-subtitle">Get things done faster with these shortcuts</p>
         </div>
         
-        <div className="p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-8">
             {quickActions.map((action, index) => {
               const Icon = action.icon;
               return (
                 <button
                   key={index}
-                  className="glass-card p-6 text-left hover:scale-105 transition-transform cursor-pointer group"
+                  className="glass-card p-8 text-left hover:scale-105 transition-transform cursor-pointer group"
                   onClick={() => console.log(`Action: ${action.action}`)}
                 >
-                  <div className={`w-14 h-14 bg-gradient-to-r ${action.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-7 h-7 text-white" />
+                  <div className={`w-16 h-16 bg-gradient-to-r ${action.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-base font-semibold text-white mb-3 leading-tight">{action.title}</h3>
-                  <p className="text-gray-300 text-sm mb-4 leading-tight">{action.description}</p>
+                  <h3 className="text-lg font-semibold text-white mb-4 leading-tight">{action.title}</h3>
+                  <p className="text-gray-300 text-base mb-6 leading-tight">{action.description}</p>
                   <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
-                    <span className="text-sm font-medium">Get Started</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <span className="text-base font-medium">Get Started</span>
+                    <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </button>
               );
@@ -186,7 +186,7 @@ const Dashboard = () => {
           <p className="card-subtitle">Your latest content and scheduled posts</p>
         </div>
         
-        <div className="p-8">
+        <div className="p-10">
           <div className="table-container">
             <table className="table">
               <thead>
@@ -201,17 +201,17 @@ const Dashboard = () => {
                 {recentCasts.map((cast) => (
                   <tr key={cast.id} className="hover:bg-white/5 transition-colors">
                     <td className="max-w-xs">
-                      <div className="truncate text-sm">
+                      <div className="truncate text-base">
                         {cast.content}
                       </div>
                     </td>
-                    <td className="text-sm text-gray-300">
+                    <td className="text-base text-gray-300">
                       {formatDate(cast.scheduledFor)}
                     </td>
                     <td>
                       {getStatusBadge(cast.status)}
                     </td>
-                    <td className="text-sm">
+                    <td className="text-base">
                       {cast.engagement > 0 ? (
                         <span className="text-green-400">+{cast.engagement}</span>
                       ) : (
@@ -224,8 +224,8 @@ const Dashboard = () => {
             </table>
           </div>
           
-          <div className="mt-8 text-center">
-            <button className="btn-secondary px-8 py-3 text-base">
+          <div className="mt-10 text-center">
+            <button className="btn-secondary px-10 py-4 text-lg">
               View All Casts
             </button>
           </div>
