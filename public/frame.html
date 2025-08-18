@@ -2,26 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta property="og:title" content="Base MiniApp" />
-  <meta property="og:description" content="Schedule and manage your Farcaster casts with ease." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Open Graph Meta Tags (Required for mobile) -->
+  <meta property="og:title" content="Cast Scheduler Pro" />
+  <meta property="og:description" content="Schedule and manage your Farcaster casts with ease. Professional cast scheduling platform." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_DOMAIN" />
   <meta property="og:image" content="https://YOUR_DOMAIN/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Cast Scheduler Pro" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cast Scheduler Pro" />
+  <meta name="twitter:description" content="Schedule and manage your Farcaster casts with ease." />
+  <meta name="twitter:image" content="https://YOUR_DOMAIN/og-image.png" />
+  
+  <!-- Farcaster Frame Meta Tags -->
   <meta name="fc:frame" content="vNext" />
   <meta name="fc:frame:image" content="https://YOUR_DOMAIN/og-image.png" />
+  <meta name="fc:frame:image:width" content="1200" />
+  <meta name="fc:frame:image:height" content="630" />
   <meta name="fc:frame:button:1" content="Schedule Cast" />
   <meta name="fc:frame:button:1:action" content="link" />
   <meta name="fc:frame:button:1:target" content="https://YOUR_DOMAIN/#/scheduler" />
-
+  
   <meta name="fc:frame:button:2" content="View Queue" />
   <meta name="fc:frame:button:2:action" content="link" />
   <meta name="fc:frame:button:2:target" content="https://YOUR_DOMAIN/#/queue" />
-
+  
   <meta name="fc:frame:button:3" content="Dashboard" />
   <meta name="fc:frame:button:3:action" content="link" />
   <meta name="fc:frame:button:3:target" content="https://YOUR_DOMAIN/#/" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Additional Frame Meta Tags for Mobile -->
+  <meta name="fc:frame:post_url" content="https://YOUR_DOMAIN/frame-callback" />
+  <meta name="fc:frame:aspect_ratio" content="1.91:1" />
+  
   <title>Cast Scheduler Pro Frame</title>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .frame-content {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+    
+    h1 {
+      margin: 0 0 20px 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    p {
+      margin: 0 0 30px 0;
+      font-size: 16px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+    
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 15px 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    .mobile-note {
+      margin-top: 30px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
-  <p>If you see this, open in Warpcast to view as a Frame.</p>
+  <div class="frame-content">
+    <div class="logo">📅</div>
+    <h1>Cast Scheduler Pro</h1>
+    <p>Schedule and manage your Farcaster casts with ease. Professional cast scheduling platform for content creators.</p>
+    
+    <div class="buttons">
+      <a href="https://YOUR_DOMAIN/#/scheduler" class="button">📝 Schedule Cast</a>
+      <a href="https://YOUR_DOMAIN/#/queue" class="button">⏰ View Queue</a>
+      <a href="https://YOUR_DOMAIN/#/" class="button">📊 Dashboard</a>
+    </div>
+    
+    <div class="mobile-note">
+      Open in Warpcast to interact with this Frame
+    </div>
+  </div>
 </body>
 </html>
