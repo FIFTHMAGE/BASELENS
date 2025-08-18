@@ -102,21 +102,21 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="space-y-8 fade-in-up">
+    <div className="space-y-6 fade-in-up">
       {/* Header */}
       <div className="glass-card">
         <div className="card-header">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h1 className="card-title">Dashboard</h1>
               <p className="card-subtitle">Welcome back! Here's what's happening with your casts.</p>
             </div>
-            <div className="flex items-center space-x-3">
-              <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg text-sm font-medium">
+            <div className="flex items-center gap-3">
+              <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
                 Professional Plan
               </div>
               <div className="text-green-400 text-sm">
-                ✓ Active Subscription
+                ✓ Active
               </div>
             </div>
           </div>
@@ -153,27 +153,29 @@ const Dashboard = () => {
           <p className="card-subtitle">Get things done faster with these shortcuts</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {quickActions.map((action, index) => {
-            const Icon = action.icon;
-            return (
-              <button
-                key={index}
-                className="glass-card p-6 text-left hover:scale-105 transition-transform cursor-pointer group"
-                onClick={() => console.log(`Action: ${action.action}`)}
-              >
-                <div className={`w-12 h-12 bg-gradient-to-r ${action.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{action.title}</h3>
-                <p className="text-gray-300 text-sm mb-4">{action.description}</p>
-                <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
-                  <span className="text-sm font-medium">Get Started</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </button>
-            );
-          })}
+        <div className="p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {quickActions.map((action, index) => {
+              const Icon = action.icon;
+              return (
+                <button
+                  key={index}
+                  className="glass-card p-4 text-left hover:scale-105 transition-transform cursor-pointer group"
+                  onClick={() => console.log(`Action: ${action.action}`)}
+                >
+                  <div className={`w-10 h-10 bg-gradient-to-r ${action.color} rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-white mb-2 leading-tight">{action.title}</h3>
+                  <p className="text-gray-300 text-xs mb-3 leading-tight">{action.description}</p>
+                  <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
+                    <span className="text-xs font-medium">Get Started</span>
+                    <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -184,47 +186,49 @@ const Dashboard = () => {
           <p className="card-subtitle">Your latest content and scheduled posts</p>
         </div>
         
-        <div className="table-container">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Content</th>
-                <th>Scheduled For</th>
-                <th>Status</th>
-                <th>Engagement</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentCasts.map((cast) => (
-                <tr key={cast.id} className="hover:bg-white/5 transition-colors">
-                  <td className="max-w-xs">
-                    <div className="truncate text-sm">
-                      {cast.content}
-                    </div>
-                  </td>
-                  <td className="text-sm text-gray-300">
-                    {formatDate(cast.scheduledFor)}
-                  </td>
-                  <td>
-                    {getStatusBadge(cast.status)}
-                  </td>
-                  <td className="text-sm">
-                    {cast.engagement > 0 ? (
-                      <span className="text-green-400">+{cast.engagement}</span>
-                    ) : (
-                      <span className="text-gray-400">-</span>
-                    )}
-                  </td>
+        <div className="p-6">
+          <div className="table-container">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Content</th>
+                  <th>Scheduled For</th>
+                  <th>Status</th>
+                  <th>Engagement</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        
-        <div className="mt-6 text-center">
-          <button className="btn-secondary">
-            View All Casts
-          </button>
+              </thead>
+              <tbody>
+                {recentCasts.map((cast) => (
+                  <tr key={cast.id} className="hover:bg-white/5 transition-colors">
+                    <td className="max-w-xs">
+                      <div className="truncate text-sm">
+                        {cast.content}
+                      </div>
+                    </td>
+                    <td className="text-sm text-gray-300">
+                      {formatDate(cast.scheduledFor)}
+                    </td>
+                    <td>
+                      {getStatusBadge(cast.status)}
+                    </td>
+                    <td className="text-sm">
+                      {cast.engagement > 0 ? (
+                        <span className="text-green-400">+{cast.engagement}</span>
+                      ) : (
+                        <span className="text-gray-400">-</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          
+          <div className="mt-6 text-center">
+            <button className="btn-secondary">
+              View All Casts
+            </button>
+          </div>
         </div>
       </div>
     </div>
