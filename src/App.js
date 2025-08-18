@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { Calendar, Clock, Users, BarChart3, Settings, Plus, DollarSign } from 'lucide-react';
+import { Calendar, Clock, Users, BarChart3, Settings, Plus, DollarSign, CreditCard } from 'lucide-react';
 import './App.css';
 
 // Import Farcaster Mini App SDK
@@ -14,6 +14,7 @@ import Queue from './pages/Queue';
 import Team from './pages/Team';
 import SettingsPage from './pages/Settings';
 import Pricing from './pages/Pricing';
+import Subscriptions from './pages/Subscriptions';
 
 // Navigation component
 function Navigation() {
@@ -26,7 +27,8 @@ function Navigation() {
     { path: '/queue', label: 'Queue', icon: Clock },
     { path: '/team', label: 'Team', icon: Users },
     { path: '/settings', label: 'Settings', icon: Settings },
-    { path: '/pricing', label: 'Pricing', icon: DollarSign }
+    { path: '/pricing', label: 'Pricing', icon: DollarSign },
+    { path: '/subscriptions', label: 'Subscriptions', icon: CreditCard }
   ];
 
   return (
@@ -148,6 +150,7 @@ function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/subscriptions" element={<Subscriptions />} />
           </Routes>
         </main>
 
