@@ -7,6 +7,9 @@ import './App.css';
 // Import Farcaster Mini App SDK
 import { sdk } from '@farcaster/miniapp-sdk';
 
+// Import components
+import Logo from './components/Logo';
+
 // Import pages
 import Dashboard from './pages/Dashboard';
 import Scheduler from './pages/Scheduler';
@@ -37,12 +40,7 @@ function Navigation() {
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
-                <Clock className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white">Cast Scheduler Pro</span>
-            </div>
+            <Logo size="default" />
           </div>
 
           {/* Desktop Navigation */}

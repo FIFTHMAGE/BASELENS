@@ -108,8 +108,8 @@ const Dashboard = () => {
         <div className="card-header">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1 className="card-title">Dashboard</h1>
-              <p className="card-subtitle">Welcome back! Here's what's happening with your casts.</p>
+              <h1 className="card-title">Welcome to Boomerang</h1>
+              <p className="card-subtitle">Schedule and manage your Farcaster casts with professional tools</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-2 rounded-lg text-sm font-medium">

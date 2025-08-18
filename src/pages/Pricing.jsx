@@ -162,7 +162,7 @@ const Pricing = () => {
       {/* Header */}
       <div className="glass-card">
         <div className="card-header">
-          <h1 className="card-title">Choose Your Plan</h1>
+          <h1 className="card-title">Boomerang Pricing</h1>
           <p className="card-subtitle">Scale your Farcaster presence with our flexible USDC subscription options</p>
         </div>
         
@@ -379,17 +379,17 @@ const Pricing = () => {
             
             <div className="border-b border-white/10 pb-4">
               <h3 className="text-base font-semibold text-white mb-2">Can I change plans anytime?</h3>
-              <p className="text-gray-300 text-sm">Yes! You can upgrade, downgrade, or cancel your plan at any time. Changes take effect immediately and USDC amounts are adjusted accordingly.</p>
+              <p className="text-gray-300 text-sm">Yes! You can upgrade, downgrade, or cancel your Boomerang plan at any time. Changes take effect immediately and USDC amounts are adjusted accordingly.</p>
             </div>
             
             <div className="border-b border-white/10 pb-4">
               <h3 className="text-base font-semibold text-white mb-2">What if I don't have enough USDC?</h3>
-              <p className="text-gray-300 text-sm">You'll need sufficient USDC in your connected wallet to subscribe. You can purchase USDC from exchanges or transfer from other wallets.</p>
+              <p className="text-gray-300 text-sm">You'll need sufficient USDC in your connected wallet to subscribe to Boomerang. You can purchase USDC from exchanges or transfer from other wallets.</p>
             </div>
             
             <div className="pb-4">
               <h3 className="text-base font-semibold text-white mb-2">Is there a free trial?</h3>
-              <p className="text-gray-300 text-sm">Yes! All plans come with a 14-day free trial. No USDC required to start - just connect your wallet and begin using the platform.</p>
+              <p className="text-gray-300 text-sm">Yes! All Boomerang plans come with a 14-day free trial. No USDC required to start - just connect your wallet and begin using the platform.</p>
             </div>
           </div>
         </div>
@@ -399,7 +399,7 @@ const Pricing = () => {
       <div className="glass-card text-center">
         <div className="p-6">
           <h2 className="text-2xl font-bold text-white mb-4">Ready to Scale Your Farcaster Presence?</h2>
-          <p className="text-gray-300 mb-6">Connect your wallet and start your USDC subscription today</p>
+          <p className="text-gray-300 mb-6">Connect your wallet and start your Boomerang USDC subscription today</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {!walletConnected ? (
               <button onClick={connectWallet} className="btn-primary text-lg px-6 py-3">

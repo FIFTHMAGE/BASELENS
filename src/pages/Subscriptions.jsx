@@ -126,7 +126,7 @@ const Subscriptions = () => {
       {/* Header */}
       <div className="glass-card">
         <div className="card-header">
-          <h1 className="card-title">My Subscriptions</h1>
+          <h1 className="card-title">Boomerang Subscriptions</h1>
           <p className="card-subtitle">Manage your USDC subscriptions and billing</p>
         </div>
       </div>
@@ -260,7 +260,7 @@ const Subscriptions = () => {
           </div>
           <h2 className="text-xl font-bold text-white mb-3">No Active Subscriptions</h2>
           <p className="text-gray-300 mb-6 max-w-sm mx-auto text-sm">
-            You don't have any active subscriptions yet. Choose a plan to unlock premium features and start scheduling your Farcaster casts.
+            You don't have any active Boomerang subscriptions yet. Choose a plan to unlock premium features and start scheduling your Farcaster casts.
           </p>
           <button 
             onClick={() => navigate('/pricing')}

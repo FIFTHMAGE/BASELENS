@@ -1,8 +1,8 @@
 {
-  "name": "cast-scheduler-pro",
+  "name": "boomerang-cast-scheduler",
   "version": "1.0.0",
   "private": true,
-  "description": "Professional Farcaster cast scheduling platform with stunning glass-morphism UI. Schedule, manage, and grow your Farcaster presence with style.",
+  "description": "Boomerang - Professional Farcaster cast scheduling platform with stunning glass-morphism UI. Schedule, manage, and grow your Farcaster presence with USDC subscriptions.",
   "main": "index.js",
   "dependencies": {
     "@farcaster/core": "^0.10.2",
@@ -44,6 +44,7 @@
     ]
   },
   "keywords": [
+    "boomerang",
     "farcaster",
     "scheduler",
     "social-media",
@@ -51,8 +52,9 @@
     "bulk-upload",
     "glass-morphism",
     "modern-ui",
+    "usdc-subscriptions",
     "production-ready"
   ],
-  "author": "Cast Scheduler Pro Team",
+  "author": "Boomerang Team",
   "license": "MIT"
 }
