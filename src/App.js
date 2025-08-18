@@ -36,15 +36,15 @@ function Navigation() {
 
   return (
     <nav className="nav-glass">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          {/* Logo */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo - Better sizing and spacing */}
           <div className="flex items-center">
-            <Logo size="default" />
+            <Logo size="large" className="mr-6" />
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2">
+          {/* Desktop Navigation - Better spacing */}
+          <div className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.path;
@@ -54,34 +54,34 @@ function Navigation() {
                   to={item.path}
                   className={`nav-item ${isActive ? 'active' : ''}`}
                 >
-                  <Icon className="w-4 h-4 mr-2" />
+                  <Icon className="w-5 h-5 mr-3" />
                   {item.label}
                 </Link>
               );
             })}
           </div>
 
-          {/* Right side - Quick Actions & User */}
+          {/* Right side - Better button spacing */}
           <div className="flex items-center space-x-4">
-            <button className="btn-primary flex items-center">
-              <Plus className="w-4 h-4 mr-2" />
+            <button className="btn-primary px-6 py-3 text-base">
+              <Plus className="w-5 h-5 mr-3" />
               New Cast
             </button>
             
-            {/* User Menu */}
-            <div className="relative">
-              <button className="flex items-center space-x-2 text-sm text-white hover:text-gray-200 transition-colors">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white text-sm font-medium">JD</span>
+            {/* User Menu - Better spacing */}
+            <div className="relative ml-4">
+              <button className="flex items-center space-x-3 text-base text-white hover:text-gray-200 transition-colors px-3 py-2 rounded-lg hover:bg-white/10">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-white text-base font-medium">JD</span>
                 </div>
-                <span className="hidden md:block font-medium">John Doe</span>
+                <span className="hidden xl:block font-medium">John Doe</span>
               </button>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button - Better positioning */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+              className="lg:hidden p-3 rounded-lg text-white hover:bg-white/10 transition-colors ml-2"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -90,10 +90,10 @@ function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Better spacing */}
         {isMobileMenuOpen && (
-          <div className="md:hidden glass-card mb-4">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="lg:hidden glass-card mb-6 mt-4">
+            <div className="px-4 py-4 space-y-3">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = location.pathname === item.path;
@@ -104,7 +104,7 @@ function Navigation() {
                     className={`nav-item block ${isActive ? 'active' : ''}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <Icon className="w-5 h-5 mr-3 inline" />
+                    <Icon className="w-5 h-5 mr-3" />
                     {item.label}
                   </Link>
                 );
@@ -140,7 +140,7 @@ function App() {
       <div className="min-h-screen">
         <Navigation />
         
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/scheduler" element={<Scheduler />} />

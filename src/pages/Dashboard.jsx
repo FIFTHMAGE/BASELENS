@@ -102,20 +102,20 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="space-y-6 fade-in-up">
+    <div className="space-y-8 fade-in-up">
       {/* Header */}
       <div className="glass-card">
         <div className="card-header">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
               <h1 className="card-title">Welcome to Boomerang</h1>
               <p className="card-subtitle">Schedule and manage your Farcaster casts with professional tools</p>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+            <div className="flex items-center gap-4">
+              <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-3 rounded-lg text-base font-medium">
                 Professional Plan
               </div>
-              <div className="text-green-400 text-sm">
+              <div className="text-green-400 text-base">
                 ✓ Active
               </div>
             </div>
@@ -153,24 +153,24 @@ const Dashboard = () => {
           <p className="card-subtitle">Get things done faster with these shortcuts</p>
         </div>
         
-        <div className="p-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div className="p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {quickActions.map((action, index) => {
               const Icon = action.icon;
               return (
                 <button
                   key={index}
-                  className="glass-card p-4 text-left hover:scale-105 transition-transform cursor-pointer group"
+                  className="glass-card p-6 text-left hover:scale-105 transition-transform cursor-pointer group"
                   onClick={() => console.log(`Action: ${action.action}`)}
                 >
-                  <div className={`w-10 h-10 bg-gradient-to-r ${action.color} rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-5 h-5 text-white" />
+                  <div className={`w-14 h-14 bg-gradient-to-r ${action.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-sm font-semibold text-white mb-2 leading-tight">{action.title}</h3>
-                  <p className="text-gray-300 text-xs mb-3 leading-tight">{action.description}</p>
+                  <h3 className="text-base font-semibold text-white mb-3 leading-tight">{action.title}</h3>
+                  <p className="text-gray-300 text-sm mb-4 leading-tight">{action.description}</p>
                   <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors">
-                    <span className="text-xs font-medium">Get Started</span>
-                    <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                    <span className="text-sm font-medium">Get Started</span>
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </button>
               );
@@ -186,7 +186,7 @@ const Dashboard = () => {
           <p className="card-subtitle">Your latest content and scheduled posts</p>
         </div>
         
-        <div className="p-6">
+        <div className="p-8">
           <div className="table-container">
             <table className="table">
               <thead>
@@ -224,8 +224,8 @@ const Dashboard = () => {
             </table>
           </div>
           
-          <div className="mt-6 text-center">
-            <button className="btn-secondary">
+          <div className="mt-8 text-center">
+            <button className="btn-secondary px-8 py-3 text-base">
               View All Casts
             </button>
           </div>
