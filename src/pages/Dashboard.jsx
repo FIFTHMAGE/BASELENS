@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, Users, TrendingUp, Plus, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, Users, TrendingUp, Plus, ArrowRight, DollarSign } from 'lucide-react';
 
 const Dashboard = () => {
   const [stats] = useState({
@@ -7,7 +7,10 @@ const Dashboard = () => {
     scheduledCasts: 8,
     publishedCasts: 12,
     draftCasts: 4,
-    engagementRate: 87.5
+    engagementRate: 87.5,
+    monthlyRevenue: 1240,
+    activeSubscribers: 156,
+    conversionRate: 12.8
   });
 
   const [recentCasts] = useState([
@@ -55,6 +58,13 @@ const Dashboard = () => {
       icon: Clock,
       action: "queue",
       color: "from-purple-500 to-pink-500"
+    },
+    {
+      title: "View Pricing",
+      description: "Explore our subscription plans and features",
+      icon: DollarSign,
+      action: "pricing",
+      color: "from-orange-500 to-red-500"
     }
   ]);
 
@@ -118,6 +128,16 @@ const Dashboard = () => {
           <div className="stat-number">{stats.engagementRate}%</div>
           <div className="stat-label">Engagement Rate</div>
         </div>
+        
+        <div className="stat-card">
+          <div className="stat-number">${stats.monthlyRevenue}</div>
+          <div className="stat-label">Monthly Revenue</div>
+        </div>
+        
+        <div className="stat-card">
+          <div className="stat-number">{stats.activeSubscribers}</div>
+          <div className="stat-label">Active Subscribers</div>
+        </div>
       </div>
 
       {/* Quick Actions */}
@@ -127,7 +147,7 @@ const Dashboard = () => {
           <p className="card-subtitle">Get things done faster with these shortcuts</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {quickActions.map((action, index) => {
             const Icon = action.icon;
             return (
@@ -148,6 +168,58 @@ const Dashboard = () => {
               </button>
             );
           })}
+        </div>
+      </div>
+
+      {/* Business Insights */}
+      <div className="glass-card">
+        <div className="card-header">
+          <h2 className="card-title">💰 Business Insights</h2>
+          <p className="card-subtitle">Track your revenue and business growth</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="glass-card p-6">
+            <h3 className="text-lg font-semibold text-white mb-4">Revenue Metrics</h3>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-300">Monthly Recurring Revenue</span>
+                <span className="text-2xl font-bold text-green-400">${stats.monthlyRevenue}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-300">Active Subscribers</span>
+                <span className="text-xl font-semibold text-white">{stats.activeSubscribers}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-300">Conversion Rate</span>
+                <span className="text-xl font-semibold text-blue-400">{stats.conversionRate}%</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="glass-card p-6">
+            <h3 className="text-lg font-semibold text-white mb-4">Growth Projections</h3>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-300">Projected Annual Revenue</span>
+                <span className="text-2xl font-bold text-purple-400">${stats.monthlyRevenue * 12}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-300">Target Subscribers</span>
+                <span className="text-xl font-semibold text-white">500</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-300">Market Opportunity</span>
+                <span className="text-xl font-semibold text-orange-400">$2.5M</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-6 text-center">
+          <button className="btn-primary">
+            View Detailed Analytics
+          </button>
         </div>
       </div>
 
