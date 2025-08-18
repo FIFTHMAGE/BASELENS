@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Check, X, Clock, Calendar, CreditCard, Download, Settings, RefreshCw } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Check, Clock, Calendar, CreditCard, Download, Settings, RefreshCw } from 'lucide-react';
 
 const Subscriptions = () => {
+  const navigate = useNavigate();
   const [subscriptions, setSubscriptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [walletConnected, setWalletConnected] = useState(false);
   const [walletAddress, setWalletAddress] = useState('');
+  const [showCancelConfirm, setShowCancelConfirm] = useState(false);
+  const [subscriptionToCancel, setSubscriptionToCancel] = useState(null);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   // Mock subscription data - in real app this would come from your database
   useEffect(() => {
@@ -40,26 +46,45 @@ const Subscriptions = () => {
     }, 1000);
   }, []);
 
-  const cancelSubscription = async (subscriptionId) => {
-    if (confirm('Are you sure you want to cancel this subscription? You\'ll lose access to premium features at the end of your billing period.')) {
-      try {
-        // This would integrate with your subscription management system
-        setSubscriptions(prev => prev.map(sub => 
-          sub.id === subscriptionId 
-            ? { ...sub, status: 'cancelling' }
-            : sub
-        ));
-        alert('Subscription cancelled successfully. You\'ll have access until the end of your billing period.');
-      } catch (error) {
-        console.error('Failed to cancel subscription:', error);
-        alert('Failed to cancel subscription. Please try again.');
-      }
+  const showMessage = (message) => {
+    setSuccessMessage(message);
+    setShowSuccessMessage(true);
+    setTimeout(() => setShowSuccessMessage(false), 5000);
+  };
+
+  const handleCancelClick = (subscription) => {
+    setSubscriptionToCancel(subscription);
+    setShowCancelConfirm(true);
+  };
+
+  const confirmCancel = async () => {
+    if (!subscriptionToCancel) return;
+    
+    try {
+      // This would integrate with your subscription management system
+      setSubscriptions(prev => prev.map(sub => 
+        sub.id === subscriptionToCancel.id 
+          ? { ...sub, status: 'cancelling' }
+          : sub
+      ));
+      showMessage('Subscription cancelled successfully. You\'ll have access until the end of your billing period.');
+    } catch (error) {
+      console.error('Failed to cancel subscription:', error);
+      showMessage('Failed to cancel subscription. Please try again.');
+    } finally {
+      setShowCancelConfirm(false);
+      setSubscriptionToCancel(null);
     }
+  };
+
+  const cancelCancel = () => {
+    setShowCancelConfirm(false);
+    setSubscriptionToCancel(null);
   };
 
   const upgradePlan = async (subscriptionId) => {
     // Redirect to pricing page for plan upgrade
-    window.location.href = '/pricing';
+    navigate('/pricing');
   };
 
   const getStatusBadge = (status) => {
@@ -155,7 +180,7 @@ const Subscriptions = () => {
                     </button>
                     {subscription.status === 'active' && (
                       <button 
-                        onClick={() => cancelSubscription(subscription.id)}
+                        onClick={() => handleCancelClick(subscription)}
                         className="btn-secondary"
                       >
                         Cancel
@@ -238,7 +263,7 @@ const Subscriptions = () => {
             You don't have any active subscriptions yet. Choose a plan to unlock premium features and start scheduling your Farcaster casts.
           </p>
           <button 
-            onClick={() => window.location.href = '/pricing'}
+            onClick={() => navigate('/pricing')}
             className="btn-primary text-lg px-8 py-4"
           >
             View Plans
@@ -295,6 +320,38 @@ const Subscriptions = () => {
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {showCancelConfirm && subscriptionToCancel && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-gray-800 p-6 rounded-lg text-white">
+            <h3 className="text-xl font-bold mb-4">Confirm Cancellation</h3>
+            <p className="text-gray-300 mb-6">
+              Are you sure you want to cancel your "{subscriptionToCancel.planName}" subscription? 
+              You will lose access to premium features at the end of your billing period.
+            </p>
+            <div className="flex justify-end space-x-3">
+              <button 
+                onClick={confirmCancel}
+                className="btn-primary"
+              >
+                Confirm Cancel
+              </button>
+              <button 
+                onClick={cancelCancel}
+                className="btn-secondary"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showSuccessMessage && (
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-green-500/20 text-white px-4 py-2 rounded-md z-40">
+          {successMessage}
         </div>
       )}
     </div>

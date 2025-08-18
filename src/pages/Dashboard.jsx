@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, Users, TrendingUp, Plus, ArrowRight, DollarSign, CreditCard } from 'lucide-react';
+import { Clock, TrendingUp, Plus, ArrowRight, DollarSign, CreditCard } from 'lucide-react';
 
 const Dashboard = () => {
   const [stats] = useState({

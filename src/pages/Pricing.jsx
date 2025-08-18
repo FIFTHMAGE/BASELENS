@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Check, Star, Zap, Crown, Users, BarChart3, Clock, Shield, Globe, Wallet, Coins } from 'lucide-react';
+import { Check, Star, Zap, Crown, Wallet, Coins } from 'lucide-react';
 
 const Pricing = () => {
   const [billingCycle, setBillingCycle] = useState('monthly');
-  const [selectedPlan, setSelectedPlan] = useState(null);
   const [isConnecting, setIsConnecting] = useState(false);
   const [walletConnected, setWalletConnected] = useState(false);
   const [walletAddress, setWalletAddress] = useState('');
